@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "https://backend-neve.onrender.com" 
+# API_URL = "https://rendertest2backend.onrender.com/" 
 
 st.title("Chat CRUD Kezelő")
 
