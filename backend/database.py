@@ -11,7 +11,7 @@ Base = declarative_base()
 
 class Chat(Base):
   __tablename__ = "chats"
-  # id = Column(Integer, primary_key = True, index = True)
+  id = Column(Integer, primary_key = True, index = True)
   email = Column(Text)
   model = Column(String(30))
   question = Column(Text)
