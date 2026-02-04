@@ -16,5 +16,6 @@ class Chat(Base):
   model = Column(String(30))
   question = Column(Text)
   answer = Column(Text)
+  date = Column(DateTime(timezone = True), server_default = func.now()) # created_at jobb lenne date helyett
 
 Base.metadata.create_all(bind = engine)
