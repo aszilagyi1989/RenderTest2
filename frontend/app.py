@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import requests
 
-API_URL = os.getenv("API_URL")
+BACKEND_URL = os.getenv("BACKEND_URL")
 
 st.title("Chat CRUD Kezelő")
 
@@ -12,16 +12,16 @@ with st.form("add_chat"):
   question = st.text_area("Kérdés")
   answer = st.text_area("Válasz")
   if st.form_submit_button("Mentés"):
-    res = requests.post(f"{API_URL}/chats/", json={
+    res = requests.post(f"{BACKEND_URL}/chats/", json={
       "email": email, "model": model, "question": question, "answer": answer
     })
     st.success("Chat elmentve!")
 
 if st.button("Frissítés / Listázás"):
-  chats = requests.get(f"{API_URL}/chats/").json()
+  chats = requests.get(f"{BACKEND_URL}/chats/").json()
   for c in chats:
     col1, col2 = st.columns([4, 1])
     col1.write(f"**{c['email']}** ({c['model']}): {c['question']} -> {c['answer']}")
-    if col2.button("Törlés", key = c['id']):
-      requests.delete(f"{API_URL}/chats/{c['id']}")
-      st.rerun()
+    # if col2.button("Törlés", key = c['id']):
+    #   requests.delete(f"{BACKEND_URL}/chats/{c['id']}")
+    #   st.rerun()
