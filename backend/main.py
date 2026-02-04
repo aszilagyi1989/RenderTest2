@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-from .database import SessionLocal, Chat
+from database import SessionLocal, Chat
 from pydantic import BaseModel
 
 app = FastAPI()
